@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@drawable/CustomSelector">
+  <LinearLayout
+      android:id="@+id/Text"
+      android:orientation="horizontal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingLeft="10dip">
+    <TextView
+        android:id="@+id/Text1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textColor="#FF7F3300"
+        android:textSize="20dip"
+        android:background="@drawable/TextViewStyle"
+        android:gravity="center"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/Text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dip"
+        android:textColor="#FF267F00"
+        android:paddingLeft="50dip" />
+  </LinearLayout>
+  <LinearLayout
+        android:id="@+id/Star"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:paddingLeft="10dip">
+    <ImageView
+        android:id="@+id/StarOne"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:src="@drawable/icon" />
+    <ImageView
+        android:id="@+id/StarTwo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:src="@drawable/icon"/>
+    <ImageView
+        android:id="@+id/StarThree"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:src="@drawable/icon" />
+  </LinearLayout>
+</RelativeLayout>

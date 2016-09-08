@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:local="clr-namespace:PokemonSwitch;assembly=PokemonSwitch"  
+             xmlns:imgButton="clr-namespace:PokemonSwitch;assembly=PokemonSwitch"
+             x:Class="PokemonSwitch.FinishedPopupPage">
+  <pages:PopupPage.Resources>
+    <ResourceDictionary x:Name="AppDictionary">
+      <Style x:Key ="LabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Chlorinp"/>
+        <Setter Property="TextColor" Value="White"/>
+      </Style>
+    </ResourceDictionary>
+  </pages:PopupPage.Resources>
+  <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    <Frame BackgroundColor="Silver" Padding="10">
+      <StackLayout Spacing="20">
+        <Label Text="Configuration !" Style="{StaticResource LabelStyle}" FontSize="30" VerticalOptions="Center"/>
+        <StackLayout Orientation="Horizontal"  Spacing="15">
+           <Label Text="Rate :" Style="{StaticResource LabelStyle}" VerticalOptions="Center"/>
+            <Image Source="{Binding StarOne}"  WidthRequest="30" HeightRequest="30" />
+            <Image Source="{Binding StarTwo}"  WidthRequest="30" HeightRequest="30"/>
+            <Image Source="{Binding StarThree}"  WidthRequest="30" HeightRequest="30"/>
+        </StackLayout>
+        <Label Text="Retry or Next ?" Style="{StaticResource LabelStyle}" VerticalOptions="Center"/>
+        <StackLayout Spacing="50" Orientation="Horizontal" HorizontalOptions="Center">
+          <imgButton:ImageButton_Image x:Name ="imgRetry" Source="retry.png" WidthRequest="50" HeightRequest="50"></imgButton:ImageButton_Image>
+          <imgButton:ImageButton_Image  x:Name ="imgNext" Source="next.png" WidthRequest="50" HeightRequest="50" ></imgButton:ImageButton_Image>
+        </StackLayout>
+      </StackLayout>
+    </Frame>
+  </StackLayout>
+</pages:PopupPage>

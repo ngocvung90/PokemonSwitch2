@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PokemonSwitch;assembly=PokemonSwitch"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="PokemonSwitch.SelectImagePopupPage">
+  <pages:PopupPage.Resources>
+    <ResourceDictionary x:Name="AppDictionary">
+      <Style x:Key ="LabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Chlorinp"/>
+        <Setter Property="TextColor" Value="#FF267F00"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+      </Style>
+    </ResourceDictionary>
+  </pages:PopupPage.Resources>
+  <StackLayout VerticalOptions="Center" HorizontalOptions="Center"  Padding="20, 20, 20, 20">
+    <Frame BackgroundColor="#FFFFFFE0" Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
+      <StackLayout Spacing="10">
+        <Label Style="{StaticResource LabelStyle}" FontSize="30" Text="Select Image" VerticalOptions="Center" HorizontalOptions="Center" />
+        <BoxView Margin="30, -1, 30, -1" BackgroundColor="#A1887F" HeightRequest="1"></BoxView>
+        <ListView x:Name="lvImage" HasUnevenRows="True" SeparatorColor="#ddd" ItemsSource="{Binding ListImage}" HorizontalOptions="Center" VerticalOptions="Center">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <local:SelectImageViewCellNative/>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+    </Frame>
+  </StackLayout>
+</pages:PopupPage>

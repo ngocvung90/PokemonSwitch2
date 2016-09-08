@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PokemonSwitch.SelectLevelCell">
+  <StackLayout Spacing="10" Orientation="Horizontal" HorizontalOptions="Center">
+    <Button WidthRequest="50" HeightRequest="50" Text="{Binding SolveStep}" BorderColor="#F2995D" BorderRadius="30" BorderWidth="2" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#464646"/>
+    <Label Text="{Binding Description}" FontSize="18" WidthRequest="120" FontAttributes="Bold" TextColor="#558B2F" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <Label Text="{Binding GateNumber}" FontSize="18" FontAttributes="Bold" TextColor="#558B2F" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <Label Text="Gates" FontSize="18" FontAttributes="Bold" TextColor="#558B2F" VerticalOptions="Center" HorizontalOptions="Center"/>
+  </StackLayout>
+</ViewCell>

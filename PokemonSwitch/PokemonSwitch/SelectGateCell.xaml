@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PokemonSwitch;assembly=PokemonSwitch"  
+             x:Class="PokemonSwitch.SelectGateCell">
+  <StackLayout Spacing="10" Orientation="Horizontal" HorizontalOptions="Center">
+    <Button WidthRequest="50" HeightRequest="50" Text="{Binding GateIndex}" BorderColor="#F2995D" BorderRadius="30" BorderWidth="2" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#464646"/>
+    <Label Text="{Binding LevelDescription}" FontSize="18" WidthRequest="120" FontAttributes="Bold" TextColor="#558B2F" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <Image Source="{Binding StarOne}" WidthRequest="30" />
+    <Image Source="{Binding StarTwo}"  WidthRequest="30"/>
+    <Image Source="{Binding StarThree}"  WidthRequest="30"/>
+  </StackLayout>
+</ViewCell>

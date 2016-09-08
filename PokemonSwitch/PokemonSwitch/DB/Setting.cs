@@ -18,5 +18,9 @@ namespace PokemonSwitch.DB
         public int GateIndex { get; set; }
         [Column("PairImageName")]
         public string PairImageName { get; set; }
+        [Column("ShowTipPopup")]
+        public int ShowTipPopup { get; set; }
+        [Column("ShowWelcomePopup")]
+        public int ShowWelcomePopup { get; set; }
     }
 }

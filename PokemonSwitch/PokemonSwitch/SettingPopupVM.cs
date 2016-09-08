@@ -75,6 +75,28 @@ namespace PokemonSwitch
                 OnPropertyChanged("ImageSource2");
             }
         }
+
+        private bool _IsOn = true;
+        public bool IsOn
+        {
+            get { return _IsOn; }
+            set
+            {
+                _IsOn = value;
+                OnPropertyChanged("IsOn");
+            }
+        }
+
+        private bool _IsOnWelcome = true;
+        public bool IsOnWelcome
+        {
+            get { return IsOnWelcome; }
+            set
+            {
+                IsOnWelcome = value;
+                OnPropertyChanged("IsOnWelcome");
+            }
+        }
         #endregion
         #region Select Level popup
         private ObservableCollection<Level> _listLevel = new ObservableCollection<Level>();

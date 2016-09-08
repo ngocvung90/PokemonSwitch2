@@ -29,6 +29,13 @@ namespace PokemonSwitch
         bool isSolved = false;
         Dictionary<int, int> dicLevelToAllowTipStep = new Dictionary<int, int>();
         int currentTipStep = 0;
+
+        TipPopupPage tipPopup = new TipPopupPage();
+        TipPopupVM tipPopupVM = new TipPopupVM();
+
+        WelcomePopupPage welcomePage = new WelcomePopupPage();
+        WelcomePopupVM welcomePopupVM = new WelcomePopupVM();
+
         public Map()
         {
             currentLevel = 2;
@@ -252,6 +259,21 @@ namespace PokemonSwitch
             //await controlGrid.ScaleTo(0);
             //await controlGrid.ScaleTo(1);
 
+            if(App._dbHelper.GetSetting().ShowWelcomePopup == 1)
+            {
+                await Task.Delay(200);
+                char quote = '"';
+                welcomePopupVM.IsOn = true;
+                welcomePopupVM.LawGuide = "- Press in pokemon image to switch it and it's neighbour.";
+                welcomePopupVM.LawGuide1 = "- The goal is make game board to ALL SAME pokemon with MINIMUM switch steps.";
+                welcomePopupVM.LawGuide2 = "- Give 3 star if your steps as " + quote.ToString() + "best" + quote.ToString() + " steps. See " + quote.ToString() + "best" + quote.ToString() + "in header.";
+                welcomePopupVM.SettingGuide = "Change Level, Gate, Image and some settings.";
+                welcomePopupVM.RetryGuide = "Try again with current gate";
+                welcomePopupVM.HelpGuide = "Show tip for user. Tip is limited.";
+                welcomePage.BindingContext = welcomePopupVM;
+                await PopupNavigation.PushAsync(welcomePage);
+            }
+
         }
         public async Task NextMap(PopupChoosen choosen)
         {
@@ -301,7 +323,7 @@ namespace PokemonSwitch
             if (isSolved) return;
             if(currentTipStep + 1 > dicLevelToAllowTipStep[currentLevel])
             {
-                DependencyService.Get<IToastAndViberate>().ShowToast("Oop! Level " + LevelIntToText(currentLevel) + " only allow " + dicLevelToAllowTipStep[currentLevel].ToString() + " tips step.");
+                DependencyService.Get<IToastAndViberate>().ShowToast("Oop! Out of tip balance. Level " + LevelIntToText(currentLevel) + " only allow " + dicLevelToAllowTipStep[currentLevel].ToString() + " tips step.");
                 return;
             }
             currentTipStep++;
@@ -334,6 +356,21 @@ namespace PokemonSwitch
                 await Task.Delay(500);
                 finishPage.SetStar(ConvertStepToRating(dicStepToMap[currentLevel][currentMapIndex].nSolvedStep));
                 await PopupNavigation.PushAsync(finishPage);
+            }
+            else
+            {
+                if(App._dbHelper.GetSetting().ShowTipPopup == 1)
+                {
+                    //show tip popup
+                    tipPopup.SetToggle(true);
+                    tipPopupVM.IsOn = true;
+                    tipPopupVM.TipBalance = (dicLevelToAllowTipStep[currentLevel] - currentTipStep).ToString();
+                    tipPopupVM.RemainSteps = "- At least " + (listRes.Count - 1).ToString() + " step to solve.";
+                    tipPopup.BindingContext = tipPopupVM;
+                    await Task.Delay(500);
+                    await PopupNavigation.PushAsync(tipPopup);
+                }
+                
             }
         }
 

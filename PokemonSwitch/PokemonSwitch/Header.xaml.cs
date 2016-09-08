@@ -67,6 +67,8 @@ namespace PokemonSwitch
             Setting setting = App._dbHelper.GetSetting();
             Level level = App._dbHelper.GetLevel(setting.LevelID);
             Gate gate = App._dbHelper.GetGate(setting.LevelID, setting.GateIndex);
+            settingPopupVM.IsOn = setting.ShowTipPopup == 1;
+            settingPopupVM.IsOnWelcome = setting.ShowWelcomePopup == 1;
             settingPopupVM.Level = level.Description;
             settingPopupVM.TotalGate = level.GateNumber.ToString();
             settingPopupVM.Gate = (gate.GateIndex + 1).ToString();

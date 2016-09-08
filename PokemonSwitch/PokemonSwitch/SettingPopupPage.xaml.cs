@@ -70,6 +70,10 @@ namespace PokemonSwitch
             setting.GateIndex = Int32.Parse(_vm.RealGate);
             setting.GateIndex--;
             setting.PairImageName = _vm.ImageSource1 + "|" + _vm.ImageSource2;
+            int ShowTipPopupVal = _vm.IsOn ? 1 : 0;
+            int ShowWelcomePopupVal = _vm.IsOnWelcome ? 1 : 0;
+            setting.ShowTipPopup = ShowTipPopupVal;
+            setting.ShowWelcomePopup = ShowWelcomePopupVal;
             App._dbHelper.UpdateSetting(setting);
             await PopupNavigation.PopAsync();
             SettingSaved();
@@ -185,6 +189,11 @@ namespace PokemonSwitch
         public void SettingSaved()
         {
             mapDelegate.SettingSaved();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
     }
 }
